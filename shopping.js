@@ -72,8 +72,9 @@ function displayItems() {
 
   function markCompleted(id) {
     console.log('Marking as complete', id);
-    const itemRef = item.find(item => item.id === id);
+    const itemRef = items.find(item => item.id === id);
     itemRef.complete = !itemRef.complete;
+    list.dispatchEvent(new CustomEvent('itemsUpdated'));
   }
 
 shoppingForm.addEventListener('submit', handleSubmit)
